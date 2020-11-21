@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import numpy as np #NOT BEING USED CAN BE REMOVED
+import numpy as np
+from download_link import get_table_download_link
 
 st.title('notas em ordem alfabética')
 
@@ -29,12 +30,28 @@ for uploaded_file in uploaded_files:
 while True:
     try:
         # gets groups multiple entrys for the same student chosing the highest
-        # grade
+        # grade, sorts them alphabetically
         df = df.groupby('Nome').max().reset_index()
+        df.sort_values('Nome', inplace = True)
+        # make the indexes start at 1 for better visualization in streamlit
+        df.index = np.arange(1, len(df) + 1)
+
     except:
         st.write('Insira um arquivo do tipo .csv')
         break
 
-    st.dataframe(df)
-    #st.table(df)
+    # start visualization options
+    if st.checkbox('tabela (melhor para copiar e colar)'):
+        st.table(df)
+    if st.checkbox('planilha (melhor para visualizar)'):
+        st.dataframe(df)
+    if st.checkbox('link para download'):
+        st.markdown('''clique no link abaixo para fazer o download da planilha.
+        note que é preciso adicionar **.csv** no final do arquivo para que ele
+        funcione. ainda, caso tenha problemas para visualizar o arquivo no excel
+        verifique suas configurações do excel para leitura de arquivos de CSV
+        ''')
+        st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+
     break
+#
