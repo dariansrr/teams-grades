@@ -1,5 +1,6 @@
 import pandas as pd
 import base64
+import os
 import streamlit as st
 from PIL import Image
 
@@ -37,8 +38,11 @@ def tutorial():
             tela:
             ''')
 
+    # Pathing
+    print1 = os.path.join(os.path.abspath('images'), 'print1.jpg')
+
     # Print of the screen refered to
-    image = Image.open('images/print1.jpg')
+    image = Image.open(print1)
     st.image(image, use_column_width=True)
 
     # Second part of the tutorial
