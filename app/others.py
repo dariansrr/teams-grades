@@ -26,12 +26,10 @@ def tutorial():
             sobrenome. assim, este aplicativo tem como função principal **gerar
             uma planilha de notas ordenada a partir do primeiro nome dos
             alunos**.
-
             ainda, ele atende segunda demanda mais específica: **ler duas ou
             mais planilhas e mesclá-las em uma única**. esta função se mostrou
             particularmente útil nos casos onde uma mesma avaliação foi
             aplicada para duas turmas distintas.
-
             ### como utilizar
             1. dentro do Teams, na avaliação em questão, exporte as notas para
             o excel. clickando nos três pontos no canto superior direito da
@@ -39,10 +37,10 @@ def tutorial():
             ''')
 
     # Pathing
-    print1 = os.path.join(os.path.abspath('images'), 'print1.jpg')
+    #print1 = os.path.join(os.path.abspath('images'), 'print1.jpg')
 
     # Print of the screen refered to
-    image = Image.open(print1)
+    image = Image.open('print1.jpg')
     st.image(image, use_column_width=True)
 
     # Second part of the tutorial
@@ -53,7 +51,6 @@ def tutorial():
             3. caregue os arquivos no aplicativo arrastando os para o ícone
             abaixo ou, então, selecione os arquivos clickando em *Browse files*
             4. selecione uma (ou mais) das opções de visualização.
-
             ### alguns cuidados
             - em situações específicas, alguns alunos não são registrados no
             arquivo final. isto ocorre por conta da forma como o aluno se
