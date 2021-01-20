@@ -38,7 +38,7 @@ def tutorial():
             ''')
 
     # Print of the screen refered to
-    image = Image.open('images\print1.jpg')
+    image = Image.open('images/print1.jpg')
     st.image(image, use_column_width=True)
 
     # Second part of the tutorial
@@ -61,5 +61,7 @@ def tutorial():
             respectivas listas de turma**.
             - ao mesclar planilhas, caso um mesmo aluno tenha duas ou mais
             notas distintas, o aplicativo privilegiará a maior.
+            - a planilha final usará o termo *NaN* para indicar os casos onde o
+            campo nota estiver em branco (o aluno não entregou a atividade).
             ---
             ''')
