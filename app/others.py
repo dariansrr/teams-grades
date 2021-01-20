@@ -39,10 +39,10 @@ def tutorial():
             ''')
 
     # Pathing
-    print1 = os.path.join(os.path.abspath('images'), 'print1.jpg')
+    #print1 = os.path.join(os.path.abspath('images'), 'print1.jpg')
 
     # Print of the screen refered to
-    image = Image.open(print1)
+    image = Image.open('print1.jpg')
     st.image(image, use_column_width=True)
 
     # Second part of the tutorial
